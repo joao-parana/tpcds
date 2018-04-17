@@ -120,7 +120,7 @@ public class SparkTPCDSBatchGenerator {
     		String errorreason = "";
     		try {
     		    System.out.println("Running " + query);
-    		    Row[] rows = gen.sqlContext.sql(query.queryText).collect();
+    		    List<Row> rows = gen.sqlContext.sql(query.queryText).collectAsList();
     		    end = System.currentTimeMillis();
     		    successful = true;
     		    System.out.printf("%s completed successfully in %.1f seconds\n", query, (end-begin) / 1000.0);
