@@ -1,27 +1,29 @@
+# TPC-DS com Spark 2.3
 
-Usage:
+Clonando o repositório e fazendo o Build
 
-To compile, invoke
+```bash
+git clone git@github.com:joao-parana/tpcds.git
+cd tpcds
+export TPCDS_WORKLOAD_GEN=$PWD
+mvn clean package
+```
 
-	mvn clean package
-
-For convenience, set TPCDS_WORKLOAD_GEN to the directory where this git repository is checked out, eg:
-
-    export TPCDS_WORKLOAD_GEN=~/tpcds
-
-To generate data with spark
+Gerando os dados com Spark
 
 ```bash
 bin/spark-submit --class edu.brown.cs.systems.tpcds.spark.SparkTPCDSDataGenerator \
     ${TPCDS_WORKLOAD_GEN}/target/spark-workloadgen-4.0-jar-with-dependencies.jar
 ```
+
 	
-To run:
+Para executar use:
 
 ```bash
 bin/spark-submit --class edu.brown.cs.systems.tpcds.spark.SparkTPCDSWorkloadGenerator \
     ${TPCDS_WORKLOAD_GEN}/target/spark-workloadgen-4.0-jar-with-dependencies.jar
 ```
+
 
 To configure the TPC-DS data set, there are a variety of configuration options.  Most of these are inherited from Databricks spark-sql-perf, which we use to generate the TPC-DS data.
 
@@ -32,23 +34,41 @@ The options of interest are as follows:
  - dataFormat specifies the format to store the data.  "parquet" and "orc" are good choices with high compression; "text" is also supported.
 
 The full (default) configuration options are as follows:
-	
-	tpcds {
-		scaleFactor = 1
-		dataLocation = "hdfs://127.0.0.1:9000/tpcds"
-		dataFormat = "parquet"
-		overwrite = true
-		partitionTables = false
-		useDoubleForDecimal = false
-		clusterByPartitionColumns = false
-		filterOutNullPartitionValues = false
-	}
-	
-We have provided a couple of useful command line utilities, which are generated into the folder `target/appassembler/bin`:
 
- - list-queries lists the available queries.  It takes zero or one arguments; with zero arguments, it lists the available benchmarks; with 1 argument, it either lists a benchmark, or prints a query.  Queries are broken down into benchmarks.  Since multiple people have implemented variants of the original TPC-DS queries, we have included multiple of these variants here.  The impala-tpcds-modified-queries are a set of 20 selected queries that several work has used for benchmarking previously with Spark.
- - dsdgen is a wrapper around the dsdgen utility that TPC provides.  This package comes with precompiled dsdgen binaries for Linux and Mac, which we use for data generation.
-	
+```java	
+tpcds {
+    scaleFactor = 1
+    dataLocation = "hdfs://127.0.0.1:9000/tpcds"
+    dataFormat = "parquet"
+    overwrite = true
+    partitionTables = false
+    useDoubleForDecimal = false
+    clusterByPartitionColumns = false
+    filterOutNullPartitionValues = false
+}
+```
 
 
+We have provided a couple of useful command line utilities, which are generated 
+into the folder `target/appassembler/bin`:
+
+* list-queries lists the available queries.  It takes zero or one arguments; with zero arguments, it lists the available benchmarks; with 1 argument, it either lists a benchmark, or prints a query.
+Queries are broken down into benchmarks.
+Since multiple people have implemented variants of the original TPC-DS queries, we have included multiple of these variants here.  The impala-tpcds-modified-queries are a set of 20 selected queries that several work has used for benchmarking previously with Spark.
+ 
+* dsdgen is a wrapper around the dsdgen utility that TPC provides. This package comes with precompiled dsdgen binaries for Linux and Mac, which we use for data generation.
+
+
+
+```bash
+```
+
+```bash
+```
+
+```bash
+```
+
+```bash
+```
 

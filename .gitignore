@@ -7,3 +7,7 @@
 *.dat
 target
 .DS_Store
+*.log
+derby.log
+metastore_db
+tmp/
