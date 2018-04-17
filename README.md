@@ -54,13 +54,17 @@ into the folder `target/appassembler/bin`:
 
 * list-queries lists the available queries.  It takes zero or one arguments; with zero arguments, it lists the available benchmarks; with 1 argument, it either lists a benchmark, or prints a query.
 Queries are broken down into benchmarks.
-Since multiple people have implemented variants of the original TPC-DS queries, we have included multiple of these variants here.  The impala-tpcds-modified-queries are a set of 20 selected queries that several work has used for benchmarking previously with Spark.
+Since multiple people have implemented variants of the original TPC-DS queries, we have included multiple of these variants here.  The impala-tpcds-modified-queries are a set of 21 selected queries that several work has used for benchmarking previously with Spark.
  
 * dsdgen is a wrapper around the dsdgen utility that TPC provides. This package comes with precompiled dsdgen binaries for Linux and Mac, which we use for data generation.
 
-
+Exemplos de execuções de list-queries
 
 ```bash
+target/appassembler/bin/list-queries
+target/appassembler/bin/list-queries impala-tpcds-modified-queries
+target/appassembler/bin/list-queries impala-tpcds-modified-queries/q98.sql
+target/appassembler/bin/list-queries impala-tpcds-modified-queries/create-rdd.sql
 ```
 
 ```bash
