@@ -48,6 +48,15 @@ tpcds {
 }
 ```
 
+É possivel alterar o destino dos dados especificando o sistema de arquivo como mostrado abaixo.
+
+
+```bash
+mkdir -p /tmp/tpcds100
+dataLocation = "file:///tmp/tpcds100"
+```
+
+Desta forma fica-se independente do HADOOP.
 
 
 We have provided a couple of useful command line utilities, which are generated 
