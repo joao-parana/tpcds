@@ -33,7 +33,7 @@ The options of interest are as follows:
  - dataLocation specifics the location of the dataset.  Typically this will be in HDFS, and you can specify HDFS file locations as normal (eg, hdfs://<hostname>:<port>/<path>)
  - dataFormat specifies the format to store the data.  "parquet" and "orc" are good choices with high compression; "text" is also supported.
 
-The full (default) configuration options are as follows:
+The full (default) configuration options are as follows (`src/main/resources/reference.conf`):
 
 ```java	
 tpcds {
@@ -47,6 +47,7 @@ tpcds {
     filterOutNullPartitionValues = false
 }
 ```
+
 
 
 We have provided a couple of useful command line utilities, which are generated 
