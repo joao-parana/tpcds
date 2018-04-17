@@ -12,7 +12,7 @@ mvn clean package
 Gerando os dados com Spark
 
 ```bash
-bin/spark-submit --class edu.brown.cs.systems.tpcds.spark.SparkTPCDSDataGenerator \
+/usr/local/spark/bin/spark-submit --class edu.brown.cs.systems.tpcds.spark.SparkTPCDSDataGenerator \
     ${TPCDS_WORKLOAD_GEN}/target/spark-workloadgen-4.0-jar-with-dependencies.jar
 ```
 
@@ -20,7 +20,7 @@ bin/spark-submit --class edu.brown.cs.systems.tpcds.spark.SparkTPCDSDataGenerato
 Para executar use:
 
 ```bash
-bin/spark-submit --class edu.brown.cs.systems.tpcds.spark.SparkTPCDSWorkloadGenerator \
+/usr/local/spark/bin/spark-submit --class edu.brown.cs.systems.tpcds.spark.SparkTPCDSWorkloadGenerator \
     ${TPCDS_WORKLOAD_GEN}/target/spark-workloadgen-4.0-jar-with-dependencies.jar
 ```
 
