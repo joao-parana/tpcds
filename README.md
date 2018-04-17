@@ -11,11 +11,17 @@ For convenience, set TPCDS_WORKLOAD_GEN to the directory where this git reposito
 
 To generate data with spark
 
-	bin/spark-submit --class edu.brown.cs.systems.tpcds.spark.SparkTPCDSDataGenerator ${TPCDS_WORKLOAD_GEN}/target/spark-workloadgen-4.0-jar-with-dependencies.jar
+```bash
+bin/spark-submit --class edu.brown.cs.systems.tpcds.spark.SparkTPCDSDataGenerator \
+    ${TPCDS_WORKLOAD_GEN}/target/spark-workloadgen-4.0-jar-with-dependencies.jar
+```
 	
 To run:
 
-	bin/spark-submit --class edu.brown.cs.systems.tpcds.spark.SparkTPCDSWorkloadGenerator ${TPCDS_WORKLOAD_GEN}/target/spark-workloadgen-4.0-jar-with-dependencies.jar
+```bash
+bin/spark-submit --class edu.brown.cs.systems.tpcds.spark.SparkTPCDSWorkloadGenerator \
+    ${TPCDS_WORKLOAD_GEN}/target/spark-workloadgen-4.0-jar-with-dependencies.jar
+```
 
 To configure the TPC-DS data set, there are a variety of configuration options.  Most of these are inherited from Databricks spark-sql-perf, which we use to generate the TPC-DS data.
 
